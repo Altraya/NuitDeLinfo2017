@@ -9,7 +9,7 @@ if($num>0){
      // set ID property of product to be edited
     $user->id = isset($_GET['id']) ? $_GET['id'] : die();
  
-    echo json_encode($products_arr);
+    echo json_encode($user);
 }
  
 else{
