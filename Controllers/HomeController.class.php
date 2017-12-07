@@ -10,4 +10,9 @@ class HomeController {
         $userManager = new UserManager($dbPDO);
         require_once("Views/home.php");
     }
+    
+    public function home()
+    {
+        require_once("Views/home.php");
+    }
 }
