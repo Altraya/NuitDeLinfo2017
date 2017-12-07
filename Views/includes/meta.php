@@ -7,11 +7,12 @@
     
     <title>
         <?php
+            $title = 'Lamastiroute';
             if(isset($params["title"]))
             {
-                echo($params["title"]);
+                echo($title . ' - ' . $params["title"]);
             }else{
-                echo("Lamastiroute");
+                echo($title);
             }
         ?>
     </title>
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="css/custom.css">
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/Main.js"></script>
     
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

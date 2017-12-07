@@ -1,6 +1,6 @@
 <?php
 
-class abstract AbstractConnectionManager {
+abstract class AbstractConnectionManager {
     protected $db;
     
     public function __construct($db){

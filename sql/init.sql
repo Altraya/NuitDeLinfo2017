@@ -1,5 +1,9 @@
 SET NAMES 'utf8';
 
+#Création du user pour la db
+CREATE USER 'Lamastiroute'@'localhost' IDENTIFIED WITH mysql_native_password AS 'lamastiroot';
+GRANT USAGE ON *.* TO 'Lamastiroute'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+
 #Création de la BDD
 CREATE DATABASE Lamastiroute
 CHARACTER SET UTF8

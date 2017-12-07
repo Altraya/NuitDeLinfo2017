@@ -1,5 +1,7 @@
 <?php
 
+require_once("HomeController.class.php");
+
 class FrontController {
     public static function dispatch()
     {
@@ -13,6 +15,7 @@ class FrontController {
                 // code...
                 break;
         }*/
-        require_once("Views/home.php");
+        $homeController = new HomeController();
+        $homeController->signup();
     }
 }
