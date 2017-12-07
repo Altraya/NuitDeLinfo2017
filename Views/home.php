@@ -4,9 +4,10 @@
     require_once("Views/includes/nav.php");
 ?>    
     
-    <link rel="stylesheet" href="css/home.css">
-    
-   <div class="tutocard">
+<link rel="stylesheet" href="css/home.css">
+
+<div class="tutocontainer">
+    <div class="tutocard">
        <div class="row">
         <div class="col s12 m7">
           <div class="card">
@@ -24,9 +25,10 @@
           </div>
         </div>
       </div>
-   </div>
-   
-  
+    </div>
+</div>
+
+
   
 <?php
     require_once("Views/includes/footer.php");

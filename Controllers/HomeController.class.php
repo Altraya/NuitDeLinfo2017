@@ -8,7 +8,7 @@ class HomeController {
     {
         require_once("config/config.php");
         $userManager = new UserManager($dbPDO);
-        require_once("Views/home.php");
+        require_once("Views/signup.php");
     }
     
     public function login()
