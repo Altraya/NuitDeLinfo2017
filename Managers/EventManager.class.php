@@ -1,5 +1,5 @@
 <?php
 
-class EventManager {
+class EventManager extends AbstractConnectionManager{
     
 }

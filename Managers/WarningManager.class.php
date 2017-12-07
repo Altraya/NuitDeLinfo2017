@@ -1,5 +1,5 @@
 <?php
 
-class WarningManager {
+class WarningManager extends AbstractConnectionManager{
     
 }
