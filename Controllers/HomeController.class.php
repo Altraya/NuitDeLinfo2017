@@ -11,6 +11,11 @@ class HomeController {
         require_once("Views/home.php");
     }
     
+    public function login()
+    {
+        require_once("Views/login.php");
+    }
+    
     public function home()
     {
         require_once("Views/home.php");

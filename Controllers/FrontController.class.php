@@ -11,6 +11,10 @@ class FrontController {
                 $homeController = new HomeController();
                 $homeController->signup();
                 break;
+            case 'login':
+                $homeController = new HomeController();
+                $homeController->login();
+                break;
             default: //home and default
                 $homeController = new HomeController();
                 $homeController->home();

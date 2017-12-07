@@ -6,19 +6,14 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
-// get database connection
-include_once '../config/database.php';
- 
-// instantiate product object
-include_once '../objects/product.php';
- 
-$database = new Database();
-$db = $database->getConnection();
- 
-$product = new Product($db);
+include_once '../Managers/UserManager.class.php';
  
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
+
+$userManager = new UserManager();
+
+$userManager->signUp($data->name, $data->mail, $data->password, 0);
  
 // set product property values
 $user->name = $data->name;
