@@ -2,7 +2,8 @@
 
 class UserManager extends AbstractConnectionManager{
     
-    //exemple request // todo to modify
+	//exemple request // todo to modify
+	/*
     function getUser($id)
     {
         $user = null;
@@ -14,7 +15,7 @@ class UserManager extends AbstractConnectionManager{
 		}
 		$req->closeCursor();
 		return $user;
-	}
+	}*/
 	
 	function signIn($name, $password)
 	{
@@ -24,15 +25,14 @@ class UserManager extends AbstractConnectionManager{
 		$req->bindValue(':name', $name, PDO::PARAM_STR);
 		$req->bindValue(':password', $password, PDO::PARAM_STR);
 		$req->execute();
+		$req->closeCursor();
 
 		if ($req)
 		{
-			$req->closeCursor();
 			return true;
 		}
 		else
 		{
-			$req->closeCursor();
 			return false;
 		}
 	}
@@ -47,15 +47,14 @@ class UserManager extends AbstractConnectionManager{
 		$req->bindValue(':password', $password, PDO::PARAM_STR);
 		$req->bindValue(':adminLevel', $adminLevel, PDO::PARAM_STR);
 		$req->execute();
+		$req->closeCursor();
 
 		if ($req)
 		{
-			$req->closeCursor();
 			return true;
 		}
 		else
 		{
-			$req->closeCursor();
 			return false;
 		}
 	}
