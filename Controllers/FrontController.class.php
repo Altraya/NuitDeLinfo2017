@@ -13,6 +13,6 @@ class FrontController {
                 // code...
                 break;
         }*/
-        require_once("Views/index.html");
+        require_once("Views/home.php");
     }
 }
