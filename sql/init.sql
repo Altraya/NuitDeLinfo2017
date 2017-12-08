@@ -55,6 +55,8 @@ CREATE TABLE Warning(
     idWarning INTEGER AUTO_INCREMENT,
     idType INTEGER,
     idEvent INTEGER,
+    lat FLOAT,
+    lon FLOAT,
     name TEXT,
     level INTEGER,
     info  TEXT,
