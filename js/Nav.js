@@ -1,5 +1,6 @@
-		$(window).load(function() {
-			$('.button').raptorize({
-				'enterOn' : 'konami-code'
-			});
-		});
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $('.lamanav').raptorize({
+		'enterOn' : 'konami-code'
+	});
+});

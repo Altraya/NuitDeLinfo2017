@@ -7,11 +7,12 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 include_once '../../Managers/UserManager.class.php';
- 
+
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
 
-$userManager = new UserManager();
+require_once("../../config/config.php");
+$userManager = new UserManager($dbPDO);
 
 if($userManager->signUp($data->name, $data->mail, $data->password, 0)){
     echo '{';

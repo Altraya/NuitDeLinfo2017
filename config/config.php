@@ -4,8 +4,8 @@ $dbname = "Lamastiroute";
 $host = "localhost";
 
 $dsn = 'mysql:dbname='.$dbname.';host='.$host;
-$user = 'Lamastiroute';
-$password = 'lamastiroot';
+$user = 'root';
+$password = '';
 
 try {
     $dbPDO = new PDO($dsn, $user, $password);

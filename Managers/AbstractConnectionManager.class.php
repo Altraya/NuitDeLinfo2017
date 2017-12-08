@@ -7,7 +7,11 @@ abstract class AbstractConnectionManager {
 		$this->setDb($db);
 	}
 	
-	protected function setDb(PDO $db){
-		$this->_db = $db;
+	public function setDb(PDO $db){
+		$this->db = $db;
+	}
+	
+	public function getDb(){
+		return $this->db;
 	}
 }

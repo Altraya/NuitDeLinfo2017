@@ -4,20 +4,12 @@ include_once 'AbstractConnectionManager.class.php';
 
 class UserManager extends AbstractConnectionManager{
     
-	//exemple request // todo to modify
-	/*
-    function getUser($id)
+    protected $db;
+
+    public function __construct($parent)
     {
-        $user = null;
-		$req = $this->db->prepare('SELECT name FROM User WHERE id = :id');
-		$req->bindValue(':id', $id, PDO::PARAM_INT);
-		$req->execute();
-		while ($data = $req->fetch(PDO::FETCH_OBJ)) {
-			$user = new User($data);
-		}
-		$req->closeCursor();
-		return $user;
-	}*/
+        $this->db = $parent;
+    }
 	
 	function signIn($name, $password)
 	{
@@ -42,7 +34,7 @@ class UserManager extends AbstractConnectionManager{
 	function signUp($name, $mail, $password, $adminLevel)
 	{
 		$password = hash('sha512', $password, false);
-
+        
 		$req = $this->db->prepare('INSERT INTO User(name, mail, password, adminLevel) VALUE (:name, :mail, :password, :adminLevel');
 		$req->bindValue(':name', $name, PDO::PARAM_STR);
 		$req->bindValue(':mail', $mail, PDO::PARAM_STR);

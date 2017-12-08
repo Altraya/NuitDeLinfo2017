@@ -4,7 +4,7 @@ var currentPositionMarker; //Current position of the user
 
 $(function() {
     initMap(48.5638945,7.7590974,11);
-    //enableGeoTracking();
+    enableGeoTracking();
 });
 
 //Starts a refresh every 10 seconds
@@ -65,7 +65,7 @@ function enableGeoTracking(){
             lng: position.coords.longitude
         };
     	var image = {
-    		url: '/src/common/icons/pegman_small.png',
+    		url: 'images/geoloc.png',
     		// This marker is 20 pixels wide by 32 pixels high.
     		size: new google.maps.Size(50, 50),
     		// The origin for this image is (0, 0).
