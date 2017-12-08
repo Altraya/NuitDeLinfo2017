@@ -4,7 +4,7 @@ $dbname = "Lamastiroute";
 $host = "localhost";
 
 $dsn = 'mysql:dbname='.$dbname.';host='.$host;
-$user = 'lamastiroute';
+$user = 'Lamastiroute';
 $password = 'lamastiroot';
 
 try {

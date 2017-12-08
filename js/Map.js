@@ -2,6 +2,11 @@
 var map; //Main map var
 var currentPositionMarker; //Current position of the user
 
+$(function() {
+    initMap(48.5638945,7.7590974,11);
+    //enableGeoTracking();
+});
+
 //Starts a refresh every 10 seconds
 function initGeoWatcher(){
     

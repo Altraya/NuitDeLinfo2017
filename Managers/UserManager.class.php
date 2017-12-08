@@ -1,5 +1,7 @@
 <?php
 
+include_once 'AbstractConnectionManager.class.php';
+
 class UserManager extends AbstractConnectionManager{
     
 	//exemple request // todo to modify
