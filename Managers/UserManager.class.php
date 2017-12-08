@@ -53,7 +53,7 @@ class UserManager extends AbstractConnectionManager{
 		}
 	}
 
-	createOrganisation($nameUser, $nameEvent, $isCreator)
+	function createOrganisation($nameUser, $nameEvent, $isCreator)
 	{
 		$req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name');
         $req->bindValue(':name', $nameUser, PDO::PARAM_STR);
