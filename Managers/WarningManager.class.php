@@ -4,7 +4,7 @@ class WarningManager extends AbstractConnectionManager{
     
     function getWarning()
     {
-
+        // it is useful ?
     }
 
     function createWarning($name, $level, $info, $nameUser, $nameEvent)
