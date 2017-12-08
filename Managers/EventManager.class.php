@@ -19,6 +19,11 @@ class EventManager extends AbstractConnectionManager{
 
     function createEvent($lat, $lon, $zoom, $name)
     {
+		if($lat == "" || $lon == "" || $name == "")
+		{
+	        return false;
+        }
+        
         $date = date("Y-m-d H:i:s");
         $req = $this->db->prepare('INSERT INTO Event(lat, lon, zoom, name, date) VALUE (:lat, :lon, :zoom, :name, :date)');
 		$req->bindValue(':lat', $lat, PDO::PARAM_STR);
@@ -41,6 +46,11 @@ class EventManager extends AbstractConnectionManager{
 
     function deleteEvent($name)
     {
+		if($name == "")
+		{
+	        return false;
+        }
+        
         $req = $this->db->prepare('DELETE FROM Event WHERE name = :name');
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->execute();

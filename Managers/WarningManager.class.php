@@ -9,6 +9,11 @@ class WarningManager extends AbstractConnectionManager{
 
     function createWarning($name, $level, $info, $nameType, $nameEvent)
     {
+		if($name == "" || $level == "" || $info == "" || $nameType == "" || $nameEvent == "")
+		{
+	        return false;
+        }
+        
         $req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name');
         $req->bindValue(':name', $nameType, PDO::PARAM_STR);
         $req->execute();
@@ -44,6 +49,11 @@ class WarningManager extends AbstractConnectionManager{
 
     function deleteWarning($name)
     {
+		if($name == "")
+		{
+	        return false;
+        }
+        
         $req = $this->db->prepare('DELETE FROM Warning WHERE name = :name');
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->execute();
