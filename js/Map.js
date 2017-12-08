@@ -108,12 +108,24 @@ function getZoom(){
     return map.getZoom();
 }
 
+function addWarning(icon,title,info){
+    
+    marker = new google.maps.Marker({
+    map:map,
+    animation: google.maps.Animation.DROP,
+    position: new google.maps.LatLng(59.32522, 18.07002),
+    icon: 'images/'+icon+".png"
+  });
+    
+}
+
 function Resolution(zoom){
         "Resolution (meters/pixel) for given zoom level (measured at Equator)"
         
         //return (2 * math.pi * 6378137) / (self.tileSize * 2**zoom)
-        return airBusParams.initialResolution / (2**zoom)
+        return airBusParams.initialResolution / (2**zoom);
 }
+
 function getAerial(){
     //$('#modal1').modal('open');
     if(typeof airBusParams.initialResolution === "undefined" || typeof airBusParams.originShift === "undefined"){

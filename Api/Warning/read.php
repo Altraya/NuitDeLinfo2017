@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 require_once("../../Managers/WarningManager.class.php");
  
-$data = json_decode(file_get_contents("php://input"));
+
 /*
 data object like :
   public 'name' => string 'mon nom' (length=7)
@@ -16,20 +16,19 @@ data object like :
 require_once("../../config/config.php");
 $warningManager = new WarningManager($dbPDO);
 
-
-foreach($warningManager -> )
-
- $product_item=array(
-            "id" => $id,
+$warning_arr=array();
+foreach($warningManager->getWarning() as $item){
+       $warning_item=array(
+            "id" => $item->id,
             "name" => $name,
             "description" => html_entity_decode($description),
             "price" => $price,
             "category_id" => $category_id,
             "category_name" => $category_name
         );
- 
-        array_push($products_arr["records"], $product_item);
+   array_push($warning_arr, $item);
+}
 
-$result = json_encode($result);
+$result = json_encode($warning_arr);
 
 echo $result;

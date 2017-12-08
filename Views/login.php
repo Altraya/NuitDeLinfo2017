@@ -8,6 +8,7 @@
 
 <div class="logincontainer">
   <div class="card card-1 logincard">
+  <div style="background-color:blue"><p id="message"></p></div>
   <h2 style="color:#ee6e73;">Login</h2>
   <div class="divider"></div>
     <div class="row">

@@ -1,5 +1,8 @@
 <?php
 
+include_once 'AbstractConnectionManager.class.php';
+include_once '../../Models/Warning.class.php';
+
 class WarningManager extends AbstractConnectionManager{
     
     function getWarning()
@@ -11,7 +14,7 @@ class WarningManager extends AbstractConnectionManager{
 
         while ($data = $req->fetch(PDO::FETCH_OBJ))
         {
-            $event[] = new Warning($data);
+            $warning[] = new Warning($data);
         }
 
         return $warning;

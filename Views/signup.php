@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="css/signup.css">
 
-<div id="message"></div>
+
 
 <div class="logincontainer">
   <div class="card card-1 logincard">
@@ -18,8 +18,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">account_circle</i>
-              <input id="name" type="text" class="validate">
-              <label for="name">Name</label>
+              <input id="nameSignup" type="text" class="validate">
+              <label for="nameSignup">Name</label>
             </div>
             <div class="col m4 s0">
             </div>
@@ -27,8 +27,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">email</i>
-              <input id="email" type="text" class="validate">
-              <label for="email">Mail</label>
+              <input id="emailSignup" type="text" class="validate">
+              <label for="emailSignup">Mail</label>
             </div>
             <div class="col m4 s0">
             </div>
@@ -36,8 +36,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">lock</i>
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
+              <input id="passwordSignup" type="password" class="validate">
+              <label for="passwordSignup">Password</label>
             </div>
             <div class="col m4 s0">
             </div>
@@ -45,13 +45,19 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">lock</i>
-              <input id="passwordVerif" type="password" class="validate">
-              <label for="passwordVerif">Confirm Password</label>
+              <input id="password2Signup" type="password" class="validate">
+              <label for="password2Signup">Confirm Password</label>
             </div>
             <div class="col m4 s0">
             </div>
           </div>
         
+          <div class="row">
+              <div class="col m12 s12 flexIt">
+                  <div id="message"></div>
+              </div>    
+          </div>
+          
           <div class="row">
             <div class="col m12 s12 flexIt">
               <button id="submitSignup" type="button" class="mediumButtonCentered btn customLessPinkBackground borderPink">Signup</button>
