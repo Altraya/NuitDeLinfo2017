@@ -18,7 +18,7 @@ $(document).ready(function() {
     //Yo' defaults
     var defaults = {  
       enterOn: 'konami-code', //timer, konami-code, click
-      delayTime: 5000 //time before raptor attacks on timer mode
+      delayTime: 2000 //time before raptor attacks on timer mode
     };  
     
     //Extend those options
@@ -41,7 +41,7 @@ $(document).ready(function() {
 		if(audioSupported) { $('body').append(raptorAudioMarkup); }
 		var raptor = $('#elRaptor').css({
 			"position":"fixed",
-			"bottom": "-300px",
+			"bottom": "-700px",
 			"right" : "-200px",
 			"display" : "none"
 		});
@@ -69,7 +69,7 @@ $(document).ready(function() {
 					var offset = (($(this).position().left)+400);
 					$(this).delay(300).animate({
 						"right" : offset
-					}, 7700, function() {
+					}, 9700, function() {
 						locked = false;
 					})
 				});

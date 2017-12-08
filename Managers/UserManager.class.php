@@ -33,6 +33,9 @@ class UserManager extends AbstractConnectionManager{
 
 	function signUp($name, $mail, $password, $adminLevel)
 	{
+	    if($name == "" || $email == "" || $password == "")
+	        return false;
+	        
 		$password = hash('sha512', $password, false);
         
 		$req = $this->db->prepare('INSERT INTO User(name, mail, password, adminLevel) VALUE (:name, :mail, :password, :adminLevel)');
