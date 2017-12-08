@@ -2,6 +2,8 @@
 
 require_once("HomeController.class.php");
 require_once("MapController.class.php");
+require_once("DashboardController.class.php");
+require_once("EventController.class.php");
 
 class FrontController {
     public static function dispatch($module)
@@ -20,9 +22,9 @@ class FrontController {
                 $homeController = new HomeController();
                 $homeController->signup();
                 break;
-            case 'dash':
-                $eventController = new EventController();
-                $eventController->dash();
+            case 'dashboard':
+                $dashboardController = new DashboardController();
+                $dashboardController->dash();
                 break;
             default: //home and default
                 $homeController = new HomeController();

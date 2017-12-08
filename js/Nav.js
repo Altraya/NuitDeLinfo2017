@@ -1,6 +1,8 @@
-$( document ).ready(function() {
+
+var $$$ = jQuery;
+$$$( document ).ready(function() {
     console.log( "ready!" );
-    $('.lamanav').raptorize({
+    $$$('.lamanav').raptorize({
 		'enterOn' : 'konami-code'
 	});
 });

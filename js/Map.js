@@ -21,12 +21,14 @@ function refreshPostion(){
     
     navigator.geolocation.getCurrentPosition(function(position) {
         
+    console.log(position.coords.latitude + " - " + position.coords.longitude);
+        
     var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
     };
 
-    marker.setPosition(pos);
+    currentPositionMarker.setPosition(pos);
 
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -64,21 +66,13 @@ function enableGeoTracking(){
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
-    	var image = {
-    		url: 'images/geoloc.png',
-    		// This marker is 20 pixels wide by 32 pixels high.
-    		size: new google.maps.Size(50, 50),
-    		// The origin for this image is (0, 0).
-    		origin: new google.maps.Point(0, 0),
-    		// The anchor for this image is the base of the flagpole at (0, 32).
-    		anchor: new google.maps.Point(25, 50)
-    	};
         currentPositionMarker = new google.maps.Marker({
             position: pos,
             map: map,
-            icon: image,
             title: "Your position",
         });
+        
+        initGeoWatcher();
 
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());

@@ -2,6 +2,10 @@
     require_once("Views/includes/meta.php");
     require_once("Views/includes/nav.php");
 ?>
+
+<link rel="stylesheet" href="css/signup.css">
+<script type="text/javascript" src="js/Signup.js"></script>
+
 <div class="logincontainer">
   <div class="card card-1 logincard">
   <h2 style="color:#ee6e73;">Signup</h2>
@@ -9,15 +13,23 @@
     <div class="row">
       <!-- Login -->
       <div class="col m13 s12 flexIt">
-        <form id="login">
+        <form id="signup">
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">account_circle</i>
-              <input id="login" type="text" class="validate">
-              <label for="login">Login</label>
+              <input id="name" type="text" class="validate">
+              <label for="name">Name</label>
             </div>
             <div class="col m4 s0">
-              
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col m12 s12">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="text" class="validate">
+              <label for="email">Mail</label>
+            </div>
+            <div class="col m4 s0">
             </div>
           </div>
           <div class="row">
