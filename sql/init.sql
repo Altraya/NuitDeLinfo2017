@@ -28,6 +28,7 @@ CREATE TABLE Event(
     lon FLOAT,
     zoom INTEGER,
     name TEXT,
+    date DATETIME,
     PRIMARY KEY (idEvent)
 );
 
