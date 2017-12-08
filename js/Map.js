@@ -108,13 +108,20 @@ function getZoom(){
     return map.getZoom();
 }
 
+function Resolution(zoom){
+        "Resolution (meters/pixel) for given zoom level (measured at Equator)"
+        
+        //return (2 * math.pi * 6378137) / (self.tileSize * 2**zoom)
+        return airBusParams.initialResolution / (2**zoom)
+}
 function getAerial(){
     //$('#modal1').modal('open');
     if(typeof airBusParams.initialResolution === "undefined" || typeof airBusParams.originShift === "undefined"){
         initAirbus(256);
     }
     LatLonToMeters(getCurrentLat(),getCurrentLon());
-    console.log(requestAirBusData(4));
+    var pixel = MetersToPixels(4);
+    console.log(requestAirBusData(4,pixel[0],pixel[1]));
 }
 
 function initAirbus(tileSize){
@@ -136,8 +143,16 @@ function LatLonToMeters(lat, lon ){
 
         airBusParams.my = airBusParams.my * airBusParams.originShift / 180.0;
 }
-function requestAirBusData(zoom){
+function MetersToPixels(zoom){
+               
+        res = Resolution( zoom )
+        px = (airBusParams.mx + airBusParams.originShift) / res
+        py = (airBusParams.my + airBusParams.originShift) / res
+        return [px, py]
+}
+
+function requestAirBusData(zoom,px,py){
     
-    var request = "http://sandbox.intelligence-airbusds.com/tiles/" + key + "/" + zoom +"/" + airBusParams.mx + "/" +airBusParams.my;
+    var request = "http://sandbox.intelligence-airbusds.com/tiles/" + key + "/" + zoom +"/" + px + "/" + py;
     return request;
 }

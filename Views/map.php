@@ -9,16 +9,6 @@
 <script language="javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEotISuimJZdqKZ9mIf1VmA68RFXIFqro"></script>
 <script type="text/javascript" src="js/Map.js"></script>
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
-  </div>
-</div>
 
 <nav>
   <div class="nav-wrapper">

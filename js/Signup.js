@@ -48,29 +48,28 @@ $(document).ready(function() {
 
         if(check)
         {
-            $.ajax({ 
+            var params = {
+                "name": name,
+                "email": email,
+                "password": password
+            };
+            
+            $.ajax({
                 type: "POST",
-                dataType: "json",
-                data : {
-                    "name": name,
-                    "password": password,
-                    "email": email
-                },
-                url: "index.php/Api/User/signup.php",
-                success: function(message){        
-                    alert(message);
-                    msg = message;
+                url: "https://nuit-info-2017-terminatorxrobocop.c9users.io/Api/User/signup.php",
+                data: params,
+                success: function(objMessage){   
+                    msg = objMessage.message;
                 },
                 error: function(xhr, textStatus, errorThrown){
-                    console.log(xhr);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-                   msg = textStatus;
+                    console.log("error");
+                    msg = textStatus;
                 }
             });
         }
         
-        console.log("Message :"+msg);
+        console.log("Message :");
+        console.log(msg);
         //in all case display message -> error or success
         $("#message").text(msg);
         

@@ -1,24 +1,26 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+//header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
-include_once '../../Managers/UserManager.class.php';
+require_once("../../Managers/UserManager.class.php");
  
-// get posted data
 $data = json_decode(file_get_contents("php://input"));
 
-$userManager = new UserManager();
+require_once("../../config/config.php");
+$userManager = new UserManager($dbPDO);
+
+var_dump($data);
 
 if($userManager->signIn($data->name, $data->password)){
-    echo '{';
-        echo '"message": "User was signed."';
-    echo '}';
+    $result = array("message" => "User was login.");
 }
 else{
-    echo '{';
-        echo '"message": "Unable to signin user."';
-    echo '}';
+    $result = array("message" => "Error login");
 }
+
+$result = json_encode($result);
+
+echo $result;

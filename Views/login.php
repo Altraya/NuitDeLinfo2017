@@ -36,7 +36,7 @@
         
           <div class="row">
             <div class="col m12 s12 flexIt">
-              <button type="submit" class="mediumButtonCentered btn customLessPinkBackground borderPink">Login</button>
+              <button type="submit" id="submitLogin" class="mediumButtonCentered btn customLessPinkBackground borderPink">Login</button>
             </div>
             <div class="col m4 s0">
             </div>

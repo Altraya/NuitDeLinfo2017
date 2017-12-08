@@ -19,7 +19,7 @@ data object like :
 require_once("../../config/config.php");
 $userManager = new UserManager($dbPDO);
 
-if($userManager->signUp($data->name, $data->mail, $data->password, 0)){
+if($userManager->signUp($data->name, $data->email, $data->password, 0)){
     $result = array("message" => "User was created.");
 }
 else{
