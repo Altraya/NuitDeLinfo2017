@@ -9,6 +9,17 @@
 <script language="javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEotISuimJZdqKZ9mIf1VmA68RFXIFqro"></script>
 <script type="text/javascript" src="js/Map.js"></script>
 
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+  </div>
+</div>
+
 <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo center">Event map</a>
@@ -29,8 +40,8 @@
     <a href="#!name"><span class="white-text name">John Doe</span></a>
     <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
   </div></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-  <li><a href="#!">Second Link</a></li>
+  <li><a href="#!"><i class="material-icons">warning</i>List of risks</a></li>
+  <li><a href="#!"><i class="material-icons">local_bar</i>Choose a SAM</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">More</a></li>
   <li><a class="waves-effect" onclick="getAerial();">Get aerial view</a></li>

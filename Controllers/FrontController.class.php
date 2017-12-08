@@ -26,9 +26,12 @@ class FrontController {
                 $dashboardController = new DashboardController();
                 $dashboardController->dash();
                 break;
-            default: //home and default
+            case "home":
                 $homeController = new HomeController();
                 $homeController->home();
+                break;
+            default: //home and default
+
                 break;
         }
         

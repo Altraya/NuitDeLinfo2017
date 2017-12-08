@@ -108,27 +108,36 @@ function getZoom(){
     return map.getZoom();
 }
 
+function getAerial(){
+    //$('#modal1').modal('open');
+    if(typeof airBusParams.initialResolution === "undefined" || typeof airBusParams.originShift === "undefined"){
+        initAirbus(256);
+    }
+    LatLonToMeters(getCurrentLat(),getCurrentLon());
+    console.log(requestAirBusData(4));
+}
+
 function initAirbus(tileSize){
         if(tileSize.isUndefined){
             tileSize = 256;
         }
         //Initialize the TMS Global Mercator pyramid
         airBusParams.tileSize = tileSize
-        airBusParams.initialResolution = 2 * math.pi * 6378137 / airBusParams.tileSize;
+        airBusParams.initialResolution = 2 * Math.PI * 6378137 / airBusParams.tileSize;
         //156543.03392804062 for tileSize 256 pixels
-        airBusParams.originShift = 2 * math.pi * 6378137 / 2.0
+        airBusParams.originShift = 2 * Math.PI * 6378137 / 2.0
         //20037508.342789244
 }      
 function LatLonToMeters(lat, lon ){
         //Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913
 
         airBusParams.mx = lon * airBusParams.originShift / 180.0;
-        airBusParams.my = math.log( math.tan((90 + lat) * math.pi / 360.0 )) / (math.pi / 180.0);
+        airBusParams.my = Math.log( Math.tan((90 + lat) * Math.PI / 360.0 )) / (Math.PI / 180.0);
 
         airBusParams.my = airBusParams.my * airBusParams.originShift / 180.0;
 }
 function requestAirBusData(zoom){
     
     var request = "http://sandbox.intelligence-airbusds.com/tiles/" + key + "/" + zoom +"/" + airBusParams.mx + "/" +airBusParams.my;
-    
+    return request;
 }
