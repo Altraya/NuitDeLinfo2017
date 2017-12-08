@@ -17,8 +17,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">account_circle</i>
-              <input id="login" type="text" class="validate">
-              <label for="login">Login</label>
+              <input id="loginuser" type="text" name="loginuser" class="validate">
+              <label for="loginuser">Login</label>
             </div>
             <div class="col m4 s0">
               
@@ -27,7 +27,7 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">lock</i>
-              <input id="password" type="password" class="validate">
+              <input id="password" type="password" name="password" class="validate">
               <label for="password">Password</label>
             </div>
             <div class="col m4 s0">
@@ -40,7 +40,7 @@
           </div>
           <div class="row">
             <div class="col m12 s12 flexIt">
-              <button type="submit" id="submitLogin" class="mediumButtonCentered btn customLessPinkBackground borderPink">Login</button>
+              <button type="button" id="submitLogin" class="mediumButtonCentered btn customLessPinkBackground borderPink">Login</button>
             </div>
             <div class="col m4 s0">
             </div>
