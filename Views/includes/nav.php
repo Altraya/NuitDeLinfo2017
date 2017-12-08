@@ -1,6 +1,3 @@
- <script
-src=’http://code.jquery.com/jquery-1.3.pack.js’></script>
-<script type="text/javascript" src="js/Nav.js"></script>
 <script type="text/javascript" src="js/jquery.raptorize.1.0.js"></script>
 <nav>
     <div class="nav-wrapper lamanav">

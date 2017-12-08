@@ -4,7 +4,8 @@
 ?>
 
 <link rel="stylesheet" href="css/signup.css">
-<script type="text/javascript" src="js/Signup.js"></script>
+
+<div id="message"></div>
 
 <div class="logincontainer">
   <div class="card card-1 logincard">
@@ -53,7 +54,7 @@
         
           <div class="row">
             <div class="col m12 s12 flexIt">
-              <button type="submit" class="mediumButtonCentered btn customLessPinkBackground borderPink">Signup</button>
+              <button id="submitSignup" type="button" class="mediumButtonCentered btn customLessPinkBackground borderPink">Signup</button>
             </div>
             <div class="col m4 s0">
             </div>
@@ -63,3 +64,5 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="js/Signup.js"></script>

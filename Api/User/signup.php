@@ -8,19 +8,29 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
  
 include_once '../../Managers/UserManager.class.php';
 
-// get posted data
-$data = json_decode(file_get_contents("php://input"));
+var_dump($_SERVER['QUERY_STRING']);
+/*
+//get the data
+$json = file_get_contents("php://input");
+var_dump($json);
+/*
+//convert the string of data to an array
+$data = json_decode($json, true);
+
+print_r($data);/*
+/*
 
 require_once("../../config/config.php");
 $userManager = new UserManager($dbPDO);
-
+echo $data;
 if($userManager->signUp($data->name, $data->mail, $data->password, 0)){
-    echo '{';
-        echo '"message": "User was created."';
-    echo '}';
+    $result = array("message" => "User was created.");
 }
 else{
-    echo '{';
-        echo '"message": "Unable to create user."';
-    echo '}';
+    $result = array("message" => "Unable to create user.");
 }
+
+var_dump($result);
+json_encode($result);
+
+echo $result;*/
