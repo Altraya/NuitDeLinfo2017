@@ -4,11 +4,26 @@ class WarningManager extends AbstractConnectionManager{
     
     function getWarning()
     {
-        // it is useful ?
+        $warning = array();
+        
+        $req = $this->db->prepare('SELECT * FROM Warning');
+        $req->execute();
+
+        while ($data = $req->fetch(PDO::FETCH_OBJ))
+        {
+            $event[] = new Warning($data);
+        }
+
+        return $warning;
     }
 
-    function createWarning($name, $level, $info, $nameType, $nameEvent)
+    function createWarning($name, $level, $info, $nameType, $nameEvent, $lat, $lon)
     {
+		if($name == "" || $level == "" || $info == "" || $nameType == "" || $nameEvent == "" || $lat == "" || $lon == "")
+		{
+	        return false;
+        }
+        
         $req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name');
         $req->bindValue(':name', $nameType, PDO::PARAM_STR);
         $req->execute();
@@ -23,9 +38,11 @@ class WarningManager extends AbstractConnectionManager{
         $idEvent = $data['idEvent'];
         $req->closeCursor();
 
-        $req = $this->db->prepare('INSERT INTO Warning(idUser, idEvent, name, level, info) VALUE (:idUser, :idEvent, :name, :level, :info)');
+        $req = $this->db->prepare('INSERT INTO Warning(idUser, idEvent, lat, lon, name, level, info) VALUE (:idUser, :idEvent, :lat, :lon, :name, :level, :info)');
         $req->bindValue(':idUser', $idType, PDO::PARAM_STR);
         $req->bindValue(':idEvent', $idEvent, PDO::PARAM_STR);
+        $req->bindValue(':lat', $lat, PDO::PARAM_STR);
+        $req->bindValue(':lon', $lon, PDO::PARAM_STR);
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->bindValue(':level', $level, PDO::PARAM_STR);
         $req->bindValue(':info', $info, PDO::PARAM_STR);
@@ -44,6 +61,11 @@ class WarningManager extends AbstractConnectionManager{
 
     function deleteWarning($name)
     {
+		if($name == "")
+		{
+	        return false;
+        }
+        
         $req = $this->db->prepare('DELETE FROM Warning WHERE name = :name');
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->execute();

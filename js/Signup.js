@@ -58,8 +58,10 @@ $(document).ready(function() {
                 type: "POST",
                 url: "https://nuit-info-2017-terminatorxrobocop.c9users.io/Api/User/signup.php",
                 data: params,
-                success: function(objMessage){   
-                    msg = objMessage.message;
+                success: function(objMessage){ 
+                    objJson = parseJSON(objMessage);
+
+                    msg = objJson.message;
                 },
                 error: function(xhr, textStatus, errorThrown){
                     console.log("error");

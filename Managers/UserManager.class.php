@@ -13,6 +13,11 @@ class UserManager extends AbstractConnectionManager{
 	
 	function signIn($name, $password)
 	{
+		if($name == "" || $password == "")
+		{
+	        return false;
+		}
+
 		$password = hash('sha512', $password, false);
 
 		$req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name AND password = :password');
@@ -33,12 +38,11 @@ class UserManager extends AbstractConnectionManager{
 
 	function signUp($name, $mail, $password, $adminLevel)
 	{
-	    
-	    if($name === "" || $email === "" || $password === "")
-	    {
+		if($name == "" || $email == "" || $password == "")
+		{
 	        return false;
-	    }
-	        
+		}
+		
         $password = hash('sha512', $password, false);
         
 		$req = $this->db->prepare('INSERT INTO User(name, mail, password, adminLevel) VALUE (:name, :mail, :password, :adminLevel)');
@@ -59,8 +63,35 @@ class UserManager extends AbstractConnectionManager{
 		}
 	}
 
+	function deleteUser($name)
+    {
+		if($name == "")
+		{
+	        return false;
+		}
+
+        $req = $this->db->prepare('DELETE FROM User WHERE name = :name');
+        $req->bindValue(':name', $name, PDO::PARAM_STR);
+        $req->execute();
+		$req->closeCursor();
+
+        if ($req)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+    }
+
 	function createOrganisation($nameUser, $nameEvent, $isCreator)
 	{
+		if($nameUser == "" || $nameEvent == "" || $isCreator == "")
+		{
+	        return false;
+		}
+
 		$req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name');
         $req->bindValue(':name', $nameUser, PDO::PARAM_STR);
         $req->execute();
@@ -91,21 +122,4 @@ class UserManager extends AbstractConnectionManager{
 			return false;
 		}
 	}
-
-	function deleteUser($name)
-    {
-        $req = $this->db->prepare('DELETE FROM User WHERE name = :name');
-        $req->bindValue(':name', $name, PDO::PARAM_STR);
-        $req->execute();
-		$req->closeCursor();
-
-        if ($req)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-    }
 }
