@@ -16,8 +16,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">account_circle</i>
-              <input id="nameSignup" type="text" class="validate">
-              <label for="nameSignup">Name</label>
+              <input id="name" type="text" class="validate">
+              <label for="name">Name</label>
             </div>
             <div class="col m4 s0">
             </div>
@@ -25,8 +25,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">email</i>
-              <input id="emailSignup" type="text" class="validate">
-              <label for="emailSignup">Mail</label>
+              <input id="email" type="text" class="validate">
+              <label for="email">Mail</label>
             </div>
             <div class="col m4 s0">
             </div>
@@ -34,8 +34,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">lock</i>
-              <input id="passwordSignup" type="password" class="validate">
-              <label for="passwordSignup">Password</label>
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
             </div>
             <div class="col m4 s0">
             </div>
@@ -43,8 +43,8 @@
           <div class="row">
             <div class="input-field col m12 s12">
               <i class="material-icons prefix">lock</i>
-              <input id="password2Signup" type="password" class="validate">
-              <label for="password2Signup">Confirm Password</label>
+              <input id="passwordVerif" type="password" class="validate">
+              <label for="passwordVerif">Confirm Password</label>
             </div>
             <div class="col m4 s0">
             </div>

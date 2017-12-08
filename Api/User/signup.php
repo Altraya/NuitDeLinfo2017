@@ -15,18 +15,13 @@ data object like :
   public 'password' => string 'toto' (length=4)
   public 'email' => string 'tata@toto.com' (length=13)
 */
-
 require_once("../../config/config.php");
 $userManager = new UserManager($dbPDO);
-
 if($userManager->signUp($data["name"], $data["email"], $data["password"], 0)){
     $result = array("message" => "User was created.");
 }
 else{
-    $msgFinal .= "Unable to create user. ";
-    $result = array("message" => $msgFinal);
+    $result = array("message" => "Unable to create user.");
 }
-
 $result = json_encode($result);
-
 echo $result;

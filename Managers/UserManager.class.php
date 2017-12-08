@@ -38,14 +38,6 @@ class UserManager extends AbstractConnectionManager{
 
 	function signUp($name, $mail, $password, $adminLevel)
 	{
-
-		if($name === "" || $email === "" || $password === "")
-		{
-	        return false;
-		}
-		
-		if($name == null || $email == null || $password == null)
-		    return false;
 		
         $password = hash('sha512', $password, false);
         
@@ -53,7 +45,7 @@ class UserManager extends AbstractConnectionManager{
 		$req->bindValue(':name', $name, PDO::PARAM_STR);
 		$req->bindValue(':mail', $mail, PDO::PARAM_STR);
 		$req->bindValue(':password', $password, PDO::PARAM_STR);
-		$req->bindValue(':adminLevel', $adminLevel, PDO::PARAM_INT);
+		$req->bindValue(':adminLevel', $adminLevel, PDO::PARAM_STR);
 		$req->execute();
 		$req->closeCursor();
 

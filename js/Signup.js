@@ -4,10 +4,10 @@ $(document).ready(function() {
         
         var msg = "";
         
-        var name = $("#nameSignup").val();
-        var email = $("#emailSignup").val();
-        var password = $("#passwordSignup").val();
-        var password2 = $("#password2Signup").val();
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var password2 = $("#passwordVerif").val();
         
         console.log("Name : "+name);
         console.log("Email :"+email);
@@ -60,6 +60,11 @@ $(document).ready(function() {
                 "email": email,
                 "password": password
             };
+            
+            params = JSON.stringify(params);
+            
+
+            console.log(params);
             
             $.ajax({
                 type: "POST",
