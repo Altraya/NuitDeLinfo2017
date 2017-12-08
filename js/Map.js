@@ -3,12 +3,34 @@ var map; //Main map var
 var currentPositionMarker; //Current position of the user
 var key = "DS_PHR1A_201307091049344_FR1_PX_E001N43_0615_01654";
 var airBusParams ={};
+var warnings = [];
 
 $(function() {
     initMap(48.5638945,7.7590974,11);
     enableGeoTracking();
     $(".button-collapse").sideNav();
+    loadWarning();
 });
+
+
+function loadWarning(){
+    //Post à process.php
+    $.ajax({
+    		type: "POST",
+    		url: "Api/Warning/read.php",
+    		
+    		success: function(data) {
+    		    
+    		    console.log(data);
+    		    for(i = 0; i < data.length; i++){
+    		        console.log(data[i]);
+    		        console.log(data[i].idWarning);
+    		        addWarning("accident",data[i].name,data[i].info,data[i].lat,data[i].lon);
+    		    }
+    		}
+    	
+    });
+}
 
 //Starts a refresh every 10 seconds
 function initGeoWatcher(){
@@ -108,14 +130,41 @@ function getZoom(){
     return map.getZoom();
 }
 
-function addWarning(icon,title,info){
+function addWarning(icon,title,info,lat,lon){
     
-    marker = new google.maps.Marker({
-    map:map,
-    animation: google.maps.Animation.DROP,
-    position: new google.maps.LatLng(59.32522, 18.07002),
-    icon: 'images/'+icon+".png"
-  });
+    var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h3 id="firstHeading" class="firstHeading">'+title+'</h3>'+
+            '<div id="bodyContent">'+
+            '<p>'+info+'</p>'+
+            '</div>'+
+            '</div>';
+            
+    var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+    
+    var icon = {
+        url: 'images/'+icon+".png", // url
+        scaledSize: new google.maps.Size(40, 35), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+    
+    var marker = new google.maps.Marker({
+        map:map,
+        animation: google.maps.Animation.DROP,
+        position: new google.maps.LatLng(lat, lon),
+        icon: icon
+    });
+    
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+
+    warnings.push(marker); 
+  
     
 }
 

@@ -3,6 +3,21 @@
 include_once 'AbstractConnectionManager.class.php';
 
 class TypeManager extends AbstractConnectionManager{
+    
+    function getTypeById($id)
+    {
+        $type = array();
+
+        $req = $this->db->prepare('SELECT * FROM Type where idType = '.$id);
+        $req->execute();
+
+        while ($data = $req->fetch(PDO::FETCH_OBJ))
+        {
+            array_push($type,$data);
+        }
+
+        return $type;
+    }
 
     function createType($name, $icon)
     {

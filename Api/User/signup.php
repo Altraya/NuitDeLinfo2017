@@ -9,12 +9,6 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once("../../Managers/UserManager.class.php");
  
 $data = json_decode(file_get_contents("php://input"));
-/*
-data object like :
-  public 'name' => string 'mon nom' (length=7)
-  public 'password' => string 'toto' (length=4)
-  public 'email' => string 'tata@toto.com' (length=13)
-*/
 
 require_once("../../config/config.php");
 $userManager = new UserManager($dbPDO);
@@ -26,6 +20,6 @@ else{
     $result = array("message" => "Unable to create user.");
 }
 
-$result = json_encode($result);
+json_encode($result);
 
 echo $result;

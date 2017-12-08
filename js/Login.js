@@ -19,15 +19,13 @@ $(document).ready(function() {
                 url: "https://nuit-info-2017-terminatorxrobocop.c9users.io/Api/User/signin.php",
                 data: params,
                 success: function(objMessage){   
-                    console.log(objMessage);
-                    console.log("success");
-                    msg = objMessage.message;
-                    $("#message").text((msg);
+                    objJson = jQuery.parseJSON(objMessage);
+                    msg = objJson.message;
+                    $("#message").text(msg);
                 },
                 error: function(xhr, textStatus, errorThrown){
-                    console.log("error");
                     msg = textStatus;
-                    $("#message").text((msg);
+                    $("#message").text(msg);
                 }
             });
     });

@@ -67,7 +67,6 @@ $(document).ready(function() {
                 data: params,
                 success: function(objMessage){ 
                     objJson = jQuery.parseJSON(objMessage);
-                    console.log(objJson);
                     msg = objJson.message;
                     console.log(msg);
                     $("#message").text(msg);

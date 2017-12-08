@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 require_once("../../Managers/WarningManager.class.php");
- 
+ require_once("../../Managers/TypeManager.class.php");
 
 /*
 data object like :
@@ -15,20 +15,14 @@ data object like :
 
 require_once("../../config/config.php");
 $warningManager = new WarningManager($dbPDO);
+$typeManager = new TypeManager($dbPDO);
+$wars = array[];
+$allWarning = $warningManager->getWarning();
 
-$warning_arr=array();
-foreach($warningManager->getWarning() as $item){
-       $warning_item=array(
-            "id" => $item->id,
-            "name" => $name,
-            "description" => html_entity_decode($description),
-            "price" => $price,
-            "category_id" => $category_id,
-            "category_name" => $category_name
-        );
-   array_push($warning_arr, $item);
+foreach($allWarning as $war){
+  
 }
 
-$result = json_encode($warning_arr);
+$result = json_encode($allWarning);
 
 echo $result;

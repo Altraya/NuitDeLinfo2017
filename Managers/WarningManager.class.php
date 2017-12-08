@@ -14,10 +14,23 @@ class WarningManager extends AbstractConnectionManager{
 
         while ($data = $req->fetch(PDO::FETCH_OBJ))
         {
-            $warning[] = new Warning($data);
+            array_push($warning, $data);
+     
         }
-
+    
         return $warning;
+    }
+    
+    function getWarnings()
+    {
+        $warnings = array();
+        $req = $this->db->prepare('SELECT * FROM Warning');
+		$req->execute();
+		while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+			$warnings[] = new Warning($data);
+		}
+		$req->closeCursor();
+		return $warnings;
     }
 
     function createWarning($name, $level, $info, $nameType, $nameEvent, $lat, $lon)

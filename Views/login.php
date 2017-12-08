@@ -8,7 +8,6 @@
 
 <div class="logincontainer">
   <div class="card card-1 logincard">
-  <div style="background-color:blue"><p id="message"></p></div>
   <h2 style="color:#ee6e73;">Login</h2>
   <div class="divider"></div>
     <div class="row">
@@ -34,7 +33,11 @@
             <div class="col m4 s0">
             </div>
           </div>
-        
+          <div class="row">
+            <div class="col m12 s12 flexIt">
+                <div id="message"></div>
+            </div>    
+          </div>
           <div class="row">
             <div class="col m12 s12 flexIt">
               <button type="submit" id="submitLogin" class="mediumButtonCentered btn customLessPinkBackground borderPink">Login</button>
@@ -42,6 +45,7 @@
             <div class="col m4 s0">
             </div>
           </div>
+          
         </form>
       </div>
     </div>
