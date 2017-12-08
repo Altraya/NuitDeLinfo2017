@@ -56,6 +56,23 @@ class UserManager extends AbstractConnectionManager{
 		}
 	}
 
+	function deleteUser($name)
+    {
+        $req = $this->db->prepare('DELETE FROM User WHERE name = :name');
+        $req->bindValue(':name', $name, PDO::PARAM_STR);
+        $req->execute();
+		$req->closeCursor();
+
+        if ($req)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+    }
+
 	function createOrganisation($nameUser, $nameEvent, $isCreator)
 	{
 		$req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name');
@@ -88,21 +105,4 @@ class UserManager extends AbstractConnectionManager{
 			return false;
 		}
 	}
-
-	function deleteUser($name)
-    {
-        $req = $this->db->prepare('DELETE FROM User WHERE name = :name');
-        $req->bindValue(':name', $name, PDO::PARAM_STR);
-        $req->execute();
-		$req->closeCursor();
-
-        if ($req)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-    }
 }
