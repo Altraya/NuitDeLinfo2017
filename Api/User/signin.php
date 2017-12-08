@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 header("Access-Control-Allow-Origin: *");
 //header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
@@ -14,6 +16,7 @@ $userManager = new UserManager($dbPDO);
 
 
 if($userManager->signIn($data->name, $data->password)){
+    $_SESSION["userName"]=$data->name;
     $result = array("message" => "User was login.");
 }
 else{

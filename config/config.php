@@ -5,7 +5,7 @@ $host = "localhost";
 
 $dsn = 'mysql:dbname='.$dbname.';host='.$host;
 $user = 'root';
-$password = '';
+$password = 'lamastiroot';
 
 try {
     $dbPDO = new PDO($dsn, $user, $password);
