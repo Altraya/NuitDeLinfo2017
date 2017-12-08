@@ -5,8 +5,6 @@
 
 <link rel="stylesheet" href="css/signup.css">
 
-
-
 <div class="logincontainer">
   <div class="card card-1 logincard">
   <h2 style="color:#ee6e73;">Signup</h2>

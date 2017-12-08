@@ -13,10 +13,10 @@
     
       <ul class="collection with-header">
         <li class="collection-header"><h4>Events</h4><button type="button" class="btn btn-success" onclick="startShopping();"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
+        <li class="collection-item"><div>My event 1<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
+        <li class="collection-item"><div>My event 2<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
+        <li class="collection-item"><div>My event 3<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
+        <li class="collection-item"><div>My event 4<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
       </ul>
     
     </div>

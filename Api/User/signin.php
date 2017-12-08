@@ -12,6 +12,7 @@ $data = json_decode(file_get_contents("php://input"));
 require_once("../../config/config.php");
 $userManager = new UserManager($dbPDO);
 
+
 if($userManager->signIn($data->name, $data->password)){
     $result = array("message" => "User was login.");
 }

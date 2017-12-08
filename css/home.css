@@ -4,7 +4,14 @@ footer {
 }
 
 .tutocard{
-    
+    display: -webkit-flex;
+	-webkit-justify-content: center;
+	-webkit-align-items: center;
+	display:flex;
+	align-items: center;
+	justify-content: center; 
+	text-align: center; 
+	text-align: -webkit-center;
 }
 
 .tutocontainer{

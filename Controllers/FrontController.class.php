@@ -31,7 +31,8 @@ class FrontController {
                 $homeController->home();
                 break;
             default: //home and default
-
+                $homeController = new HomeController();
+                $homeController->home();
                 break;
         }
         

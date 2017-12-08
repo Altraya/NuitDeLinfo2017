@@ -23,9 +23,7 @@ function loadWarning(){
     		    
     		    console.log(data);
     		    for(i = 0; i < data.length; i++){
-    		        console.log(data[i]);
-    		        console.log(data[i].idWarning);
-    		        addWarning("accident",data[i].name,data[i].info,data[i].lat,data[i].lon);
+    		        addWarning(data[i].idType[0].icon,data[i].name,data[i].info,data[i].lat,data[i].lon);
     		    }
     		}
     	
@@ -131,6 +129,8 @@ function getZoom(){
 }
 
 function addWarning(icon,title,info,lat,lon){
+    
+    console.log(lat + " - " + lon);
     
     var contentString = '<div id="content">'+
             '<div id="siteNotice">'+

@@ -16,13 +16,15 @@ data object like :
 require_once("../../config/config.php");
 $warningManager = new WarningManager($dbPDO);
 $typeManager = new TypeManager($dbPDO);
-$wars = array[];
+$wars = [];
 $allWarning = $warningManager->getWarning();
 
 foreach($allWarning as $war){
+  $war->idType = $typeManager->getTypeById($war->idType);
   
+  array_push($wars, $war);
 }
 
-$result = json_encode($allWarning);
+$result = json_encode($wars);
 
 echo $result;
