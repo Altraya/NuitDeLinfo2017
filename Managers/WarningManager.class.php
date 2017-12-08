@@ -7,13 +7,13 @@ class WarningManager extends AbstractConnectionManager{
         // it is useful ?
     }
 
-    function createWarning($name, $level, $info, $nameUser, $nameEvent)
+    function createWarning($name, $level, $info, $nameType, $nameEvent)
     {
         $req = $this->db->prepare('SELECT idUser FROM User WHERE name = :name');
-        $req->bindValue(':name', $nameUser, PDO::PARAM_STR);
+        $req->bindValue(':name', $nameType, PDO::PARAM_STR);
         $req->execute();
         $data = $req->fetch_assoc();
-        $idUser = $data['idUser'];
+        $idType = $data['idUser'];
         $req->closeCursor();
 
         $req = $this->db->prepare('SELECT idEvent FROM Event WHERE name = :name');
@@ -24,7 +24,7 @@ class WarningManager extends AbstractConnectionManager{
         $req->closeCursor();
 
         $req = $this->db->prepare('INSERT INTO Warning(idUser, idEvent, name, level, info) VALUE (:idUser, :idEvent, :name, :level, :info)');
-        $req->bindValue(':idUser', $idUser, PDO::PARAM_STR);
+        $req->bindValue(':idUser', $idType, PDO::PARAM_STR);
         $req->bindValue(':idEvent', $idEvent, PDO::PARAM_STR);
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->bindValue(':level', $level, PDO::PARAM_STR);
