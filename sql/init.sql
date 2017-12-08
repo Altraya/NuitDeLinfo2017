@@ -35,6 +35,7 @@ CREATE TABLE Event(
 CREATE TABLE Organise(
     idUser INTEGER,
     idEvent INTEGER,
+    isCreator BOOL,
     FOREIGN KEY (idUser)
         REFERENCES User(idUser)
         ON DELETE CASCADE,
